@@ -1,0 +1,66 @@
+<form class="animated fadeIn" name="registracija" ng-if="lv.registracijaInd" ng-submit="registracija.$valid && lv.provjeriKorisnickoIme() && lv.provjeriLozinke() && lv.dodajKorisnika()">
+	<div class="container">
+        <div class="centered-form">
+    		<div class="panel panel-default">
+    			<div class="panel-heading">
+		    		<h3 class="panel-title">Registracija</h3>
+		 		</div>
+		 		<div class="panel-body">
+		    		<form role="form">
+		    			<div class="row">
+		    				<div class="col-xs-6 col-sm-6 col-md-6">
+		    					<div class="form-group">
+		                			<input type="text" name="ime" class="form-control input-sm" placeholder="Ime" ng-model="lv.noviKorisnik.ime" ng-class="{'is-invalid': registracija.ime.$invalid}" required>
+		    					</div>
+		    				</div>
+		    				<div class="col-xs-6 col-sm-6 col-md-6">
+		    					<div class="form-group">
+		    						<input type="text" name="prezime" class="form-control input-sm" placeholder="Prezime" ng-model="lv.noviKorisnik.prezime" ng-class="{'is-invalid': registracija.prezime.$invalid}" required>
+		    					</div>
+		    				</div>
+		    			</div>
+		    			<div class="form-group">
+		    				<input type="email" name="email" class="form-control input-sm" placeholder="Email adresa" ng-model="lv.noviKorisnik.email" ng-class="{'is-invalid': registracija.email.$invalid}" required>
+		    			</div>
+		    			<div class="form-group">
+		    				<input type="text" name="korisnicko_ime" class="form-control input-sm" placeholder="Korisničko ime" ng-model="lv.noviKorisnik.korisnicko_ime" ng-class="{'is-invalid': registracija.korisnicko_ime.$invalid}" required>
+		    			</div>
+		    			<div class="form-group">
+		    				<input type="text" name="adresa" class="form-control input-sm" placeholder="Adresa" ng-model="lv.noviKorisnik.adresa" ng-class="{'is-invalid': registracija.adresa.$invalid}" required>
+		    			</div>
+		    			<div class="form-group">
+							<select class="form-control border">
+								<option disabled selected>Pol:</option>
+							    <option ng-model="lv.noviKorisnik.pol" value="Muški">Muški</option>
+							    <option ng-model="lv.noviKorisnik.pol" value="Ženski">Ženski</option>
+							</select>
+						</div>
+		    			<div class="form-group">
+		    				<input type="text" name="telefon" class="form-control input-sm" placeholder="Broj telefona" ng-model="lv.noviKorisnik.telefon">
+		    			</div>
+		    			<div class="row">
+		    				<div class="col-xs-6 col-sm-6 col-md-6">
+		    					<div class="form-group">
+		    						<input type="password" name="lozinka" class="form-control input-sm" placeholder="Lozinka" ng-model="lv.noviKorisnik.lozinka" ng-class="{'is-invalid': registracija.lozinka.$invalid}" required>
+		    					</div>
+		    				</div>
+		    				<div class="col-xs-6 col-sm-6 col-md-6">
+		    					<div class="form-group">
+		    						<input type="password" name="lozinka2" class="form-control input-sm" placeholder="Ponovljena lozinka" ng-model="lv.lozinka2" ng-class="{'is-invalid': registracija.lozinka2.$invalid}" required>
+		    					</div>
+		    				</div>
+		    			</div>
+		    			<button class="btn btn-lg btn-primary btn-block" type="submit" ng-disabled="registracija.$invalid">Registracija</button>
+		    			<br>
+		    			<div class="alert alert-danger" role="alert" ng-if="lv.noviKorisnik.lozinka == null || lv.lozinka2 == null">
+		                    Lozinke se ne poklapaju.
+		                </div>
+		                <div class="alert alert-danger" role="alert" ng-if="lv.noviKorisnik.korisnicko_ime == null">
+		                    Korisničko ime već postoji. Izaberite neko drugo.
+		                </div>
+		    		</form>
+		    	</div>
+    		</div>
+    	</div>
+    </div>
+</form>

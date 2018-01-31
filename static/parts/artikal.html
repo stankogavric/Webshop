@@ -1,0 +1,79 @@
+<div class="container animated fadeIn" ng-if="lv.detaljiInd">
+    <div class="card-deck mb-3 text-center">
+	    <div class="card mb-4 box-shadow">
+	        <div class="card-header">
+	        	<h4 class="my-0 font-weight-normal">{{lv.zaPrikaz.naziv}}</h4>
+	        </div>
+	        <div class="card-body">
+	        	<p><i>{{lv.zaPrikaz.datum | date : 'dd. MM. yyyy. u HH:mm:ss'}}s</i></p>
+                <img ng-src="{{lv.zaPrikaz.slika}}" class="img-fluid" alt="" style="height: 40%;width: 40%;">
+	            <h1 class="card-title pricing-card-title">{{lv.zaPrikaz.cijena}} &euro;<small class="text-muted">/kom</small></h1>
+			    <div class="row">
+			    	<div class="card-deck mb-3 text-center p-2 mw-100">
+					    <div class="card mb-4 box-shadow">
+					        <div class="card-header">
+					        	<h4 class="my-0 font-weight-normal">Objavio</h4>
+					        </div>
+					        <div class="card-body">
+					            <ul class="list-unstyled mt-3 mb-4">
+					             	<li>{{lv.zaPrikaz.korisnik.korisnicko_ime}}</li>
+					            </ul>
+					        </div>
+					    </div>
+				    </div>
+			    	<div class="card-deck mb-3 text-center p-2 mw-100">
+					    <div class="card mb-4 box-shadow">
+					        <div class="card-header">
+					        	<h4 class="my-0 font-weight-normal">Kategorija</h4>
+					        </div>
+					        <div class="card-body">
+					            <ul class="list-unstyled mt-3 mb-4">
+					             	<li>{{lv.zaPrikaz.kategorija.nazivKategorije}}</li>
+					            </ul>
+					        </div>
+					    </div>
+				    </div>
+				    <div class="card-deck mb-3 text-center p-2 mw-100">
+					    <div class="card mb-4 box-shadow">
+					        <div class="card-header">
+					        	<h4 class="my-0 font-weight-normal">Stanje</h4>
+					        </div>
+					        <div class="card-body">
+					            <ul class="list-unstyled mt-3 mb-4">
+					             	<li>{{lv.zaPrikaz.stanje}}</li>
+					            </ul>
+					        </div>
+					    </div>
+				    </div>
+				    <div class="card-deck mb-3 text-center p-2 mw-100">
+					    <div class="card mb-4 box-shadow">
+					        <div class="card-header">
+					        	<h4 class="my-0 font-weight-normal">Količina</h4>
+					        </div>
+					        <div class="card-body">
+					            <ul class="list-unstyled mt-3 mb-4">
+					             	<li>{{lv.zaPrikaz.kolicina}}</li>
+					            </ul>
+					        </div>
+					    </div>
+				    </div>
+				    <div class="card-deck mb-3 text-center p-2 mw-100">
+					    <div class="card mb-4 box-shadow">
+					        <div class="card-header">
+					        	<h4 class="my-0 font-weight-normal">Opis</h4>
+					        </div>
+					        <div class="card-body">
+                                <p>{{lv.zaPrikaz.opis}}</p>
+					        </div>
+					    </div>
+				    </div>
+			    </div>
+				<div class="form-group" ng-if="!lv.autor(lv.zaPrikaz)" style="width: 20%; margin: auto;">
+                    <label for="kolicina">Količina</label>
+                    <input type="number" min="0" max="{{lv.zaPrikaz.kolicina}}" class="form-control" name="kolicina" placeholder="Količina" ng-model="lv.kolicinaKupi">
+                    <button type="button" class="btn btn-lg btn-primary btn-block" ng-click="lv.kupi(lv.zaPrikaz)">Kupi</button>
+                </div>
+	        </div>
+	    </div>
+    </div>
+</div>

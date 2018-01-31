@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#" ng-click="lv.dobaviArtikle()">Webshop</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#" ng-click="lv.dobaviArtikle()">Početna <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" ng-click="lv.noviPrikazi()">Novi artikal</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kategorije</a>
+                <div class="dropdown-menu animated fadeIn" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="#" ng-repeat="kategorija in lv.kategorije track by $index" ng-click="lv.dobaviKategoriju(kategorija.nazivKategorije)"><span style="color: black;">{{kategorija.nazivKategorije}}</span></a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sortiraj po</a>
+                <div class="dropdown-menu animated fadeIn" aria-labelledby="dropdown03">
+                    <a class="dropdown-item" href="#" ng-repeat="sort in lv.sortiranje track by $index" ng-click="lv.sortiraj(sort)"><span style="color: black;">{{sort}}</span></a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" ng-click="lv.promijeniSmijer()"><span ng-if="lv.smijer==false">&nearr;</span><span ng-if="lv.smijer">&searr;</span>{{lv.smijerSimbol}}</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Traži..." aria-label="Search" ng-model="lv.pretraga">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item" ng-if="!lv.prijavljen">
+                    <a class="nav-link" href="#" ng-click="lv.registracijaPrikazi()">Registracija</a>
+                </li>
+                <li class="nav-item" ng-if="!lv.prijavljen">
+                    <a class="nav-link" href="#" ng-click="lv.prijavaPrikazi()">Prijava</a>
+                </li>
+                <li class="nav-item dropdown" ng-if="lv.prijavljen">
+                    <a class="nav-link dropdown-toggle" href="" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{lv.prijavljenKorisnik.ime}} {{lv.prijavljenKorisnik.prezime}}</a>
+                    <div class="dropdown-menu animated fadeIn" aria-labelledby="dropdown02">
+                    	<a class="dropdown-item" href="#" ng-click="lv.mojProfil()"><span style="color: black;">Moj profil</span></a>
+                    	<a class="dropdown-item" href="#" ng-click="lv.mojiArtikli()"><span style="color: black;">Moji artikli</span></a>
+                        <a class="dropdown-item" href="#" ng-click="lv.odjava()"><span style="color: black;">Odjava</span></a>
+                    </div>
+                </li> 
+            </ul>
+        </form>   
+    </div>
+</nav>

@@ -1,0 +1,17 @@
+<form name="prijava" class="form-signin animated fadeIn" ng-if="lv.prijavaInd" ng-submit="prijava.$valid && lv.prijava()">
+    <h2 class="form-signin-heading">Prijava</h2>
+    <label for="username" class="sr-only">Korisničko ime</label>
+    <input type="text" id="username" name="username" class="form-control" placeholder="Korisničko ime" ng-model="lv.korisnicko_ime" ng-class="{'is-invalid': prijava.username.$invalid}" required autofocus>
+    <label for="inputPassword" class="sr-only">Lozinka</label>
+    <input type="password" id="inputPassword" name="lozinka" class="form-control" placeholder="Lozinka" ng-model="lv.lozinka" ng-class="{'is-invalid': prijava.lozinka.$invalid}" required>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" value="remember-me"> Zapamti me
+        </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" ng-disabled="prijava.$invalid">Prijava</button>
+    <br>
+    <div class="alert alert-danger" role="alert" ng-if="lv.korisnicko_ime==null || lv.lozinka==null">
+        Netačna email adresa ili lozinka. Pokušajte ponovo.
+    </div>
+</form>

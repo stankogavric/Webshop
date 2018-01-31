@@ -1,0 +1,74 @@
+<div class="card-deck mb-3 text-center animated fadeIn" ng-if="lv.korisnikInd">
+    <div class="card mb-4 box-shadow">
+        <div class="card-header">
+        	<h4 class="my-0 font-weight-normal">{{lv.prijavljenKorisnik.ime}} {{lv.prijavljenKorisnik.prezime}}</h4>
+        </div>
+        <div class="card-body">
+            <img ng-src="{{lv.prijavljenKorisnik.profilna_slika}}" class="img-fluid" alt="" style="height: 20%;width: 20%;">
+            <h1 class="card-title pricing-card-title">{{lv.prijavljenKorisnik.korisnicko_ime}}</h1>			        
+		    <div class="row">
+		    	<div class="card-deck mb-3 text-center p-2 mw-100">
+				    <div class="card mb-4 box-shadow">
+				        <div class="card-header">
+				        	<h4 class="my-0 font-weight-normal">Pol</h4>
+				        </div>
+				        <div class="card-body">
+				            <ul class="list-unstyled mt-3 mb-4">
+				             	<li>{{lv.prijavljenKorisnik.pol}}</li>
+				            </ul>
+				        </div>
+				    </div>
+			    </div>
+		    	<div class="card-deck mb-3 text-center p-2 mw-100">
+				    <div class="card mb-4 box-shadow">
+				        <div class="card-header">
+				        	<h4 class="my-0 font-weight-normal">Adresa</h4>
+				        </div>
+				        <div class="card-body">
+				            <ul class="list-unstyled mt-3 mb-4">
+				             	<li>{{lv.prijavljenKorisnik.adresa}}</li>
+				            </ul>
+				        </div>
+				    </div>
+			    </div>
+		    	<div class="card-deck mb-3 text-center p-2 mw-100">
+				    <div class="card mb-4 box-shadow">
+				        <div class="card-header">
+				        	<h4 class="my-0 font-weight-normal">Email</h4>
+				        </div>
+				        <div class="card-body">
+				            <ul class="list-unstyled mt-3 mb-4">
+				             	<li>{{lv.prijavljenKorisnik.email}}</li>
+				            </ul>
+				        </div>
+				    </div>
+			    </div>
+			    <div class="card-deck mb-3 text-center p-2 mw-100">
+				    <div class="card mb-4 box-shadow">
+				        <div class="card-header">
+				        	<h4 class="my-0 font-weight-normal">Telefon</h4>
+				        </div>
+				        <div class="card-body">
+				            <ul class="list-unstyled mt-3 mb-4">
+				             	<li>{{lv.prijavljenKorisnik.telefon}}</li>
+				            </ul>
+				        </div>
+				    </div>
+			    </div>
+			    <div class="card-deck mb-3 text-center p-2 mw-100">
+				    <div class="card mb-4 box-shadow">
+				        <div class="card-header">
+				        	<h4 class="my-0 font-weight-normal">Stanje računa</h4>
+				        </div>
+				        <div class="card-body">
+				            <ul class="list-unstyled mt-3 mb-4">
+				             	<li>{{lv.prijavljenKorisnik.stanje_racuna}} &euro;</li>
+				            </ul>
+				        </div>
+				    </div>
+			    </div>
+		    </div>
+		<button type="button" class="btn btn-lg btn-primary btn-block" ng-click="lv.pripremiZaIzmjenuKorisnik(lv.prijavljenKorisnik)" style="margin: auto; width: 50%">Izmijeni profil<span aria-hidden="true">&#9998;</span></button>
+        </div>
+    </div>
+</div>

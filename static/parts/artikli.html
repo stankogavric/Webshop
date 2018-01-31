@@ -1,0 +1,26 @@
+<div class="row animated fadeIn" ng-if="lv.artikliInd">
+    <div class="col-md-4" ng-repeat="artikal in lv.artikli | filter: { naziv: lv.pretraga, nazivKategorije: lv.jednaKategorija, korisnicko_ime: lv.filterKorisnik } | orderBy: lv.kriterijum : lv.smijer track by $index">
+        <div>
+            <div class="card animated fadeIn" style="position: relative; margin-bottom: 10%; height: 500px">
+                <div class="view overlay hm-white-slight">
+                    <img ng-src="{{artikal.slika}}" class="img-fluid" alt="">
+                    <a href="">
+                        <div class="mask"></div>
+                    </a>
+                </div>
+                <div class="btn-group float-right" ng-if="lv.prijavljen && lv.autor(artikal)" style="position: absolute;">
+                    <button type="button" class="btn btn-sm btn-primary" ng-click="lv.pripremiZaIzmjenu(artikal)">Izmijeni
+                        <span aria-hidden="true">&#9998;</span></button>
+                    <button type="button" class="btn btn-sm btn-danger" ng-click="lv.ukloni(artikal.id)">Ukloni
+                        <span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">{{artikal.naziv | limitTo: 20}}  {{artikal.naziv.length < 20 ? '' : '...'}}</h4>
+                    <h3><b>{{artikal.cijena}} &euro;</b></h3>
+                    <p class="card-text">{{artikal.opis | limitTo: 100}} {{artikal.opis.length < 100 ? '' : '...'}}</p>
+                    <button type="button" class="btn btn-md btn-info" ng-click="lv.prikaziDetalje(artikal)" href="#">Prikaži još detalja &raquo;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
